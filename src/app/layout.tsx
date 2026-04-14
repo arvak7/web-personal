@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Unbounded, Figtree, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -64,6 +65,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
