@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { clarityEvent } from "@/lib/clarity";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -65,7 +66,7 @@ export function Hero() {
               size="lg"
               className="bg-teal text-white hover:bg-teal-dark font-display font-bold text-sm tracking-wide"
             >
-              <a href="#contacto">Solicita una auditoría gratuita</a>
+              <a href="#contacto" onClick={() => clarityEvent("cta_hero_auditoria")}>Solicita una auditoría gratuita</a>
             </Button>
             <Button
               asChild
@@ -73,7 +74,7 @@ export function Hero() {
               size="lg"
               className="text-muted-foreground hover:text-foreground font-display font-semibold text-sm group"
             >
-              <a href="#como-funciona" className="flex items-center justify-center gap-2">
+              <a href="#como-funciona" className="flex items-center justify-center gap-2" onClick={() => clarityEvent("cta_hero_como_funciona")}>
                 Ver cómo funciona
                 <svg
                   className="w-4 h-4 transition-transform group-hover:translate-x-0.5"

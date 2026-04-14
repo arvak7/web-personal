@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { whatsappUrl } from "@/lib/config";
+import { clarityEvent } from "@/lib/clarity";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -38,11 +39,14 @@ export function Contact() {
       if (res.ok) {
         setStatus("success");
         setForm({ name: "", email: "", company: "", problem: "" });
+        clarityEvent("form_contact_success");
       } else {
         setStatus("error");
+        clarityEvent("form_contact_error");
       }
     } catch {
       setStatus("error");
+      clarityEvent("form_contact_error");
     }
   };
 
@@ -78,6 +82,7 @@ export function Contact() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => clarityEvent("cta_whatsapp")}
               className="inline-flex items-center gap-3 px-5 py-3 rounded-lg border border-border bg-card hover:border-teal/40 hover:bg-secondary/60 transition-colors group"
             >
               <svg
