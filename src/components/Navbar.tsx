@@ -40,8 +40,7 @@ export function Navbar() {
             href="#"
             className="flex items-center gap-2 font-display font-bold text-sm tracking-tight"
           >
-            <img src="/mr.svg" alt="MR" className="w-[432px] h-[432px] flex-shrink-0 dark:invert" />
-            <span className="text-foreground">{SITE_CONFIG.name}</span>
+<span className="text-foreground">{SITE_CONFIG.name}</span>
             <span className="text-teal hidden sm:inline">· IA para empresas</span>
           </a>
 
